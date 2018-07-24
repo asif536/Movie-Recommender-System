@@ -1,5 +1,5 @@
 # Movie-Recommender-System
-It is basic movie recommender website which Implement Collaborative Filtering By matrix factorizations algorithm.
+This repository contains the code for a Movie Recommendation web application which Implement Collaborative Filtering By matrix factorizations algorithm.
 
 ### Technologies Used
 
