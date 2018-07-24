@@ -1,0 +1,38 @@
+{% extends 'web/base.html'%}
+{% block title %}Recommendations{% endblock %}
+{% block body %}
+
+<div class="container-fluid">
+	<h2>Recommendations for You </h2>
+</div>
+
+
+	<div class="container-fluid">
+    
+    <!-- Movie list -->
+    <div class="row">
+            {% if movie_list %}
+            {% for movie in movie_list %}
+                <div class="col-sm-2 col-md-2 ">
+                    <div class="thumbnail">
+                        <h4>{{movie.title}}</h4>
+                        <a href="{% url 'detail' movie.id %}">
+                            <img src="{{ movie.movie_logo.url}}" class="img-responsive">
+                        </a>
+                        <h5>{{movie.genre}}</h5>
+                        <div class="caption">
+
+                            <!-- View Details -->
+                            <a href="{% url 'detail' movie.id %}" class="btn btn-primary btn-sm" role="button">Give Rating</a>
+
+                                        
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+        </div>
+    
+</div>
+
+{% endblock %}

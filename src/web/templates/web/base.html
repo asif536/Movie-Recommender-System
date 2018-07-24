@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{% block title %}Movies{% endblock title %}</title>
+    {% load staticfiles %}
+
+	<link rel="stylesheet" type="text/css" href="{% static 'web/css/bootstrap.min.css'%}">
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' >
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='{% static "web/css/base.css" %}' />
+
+    <style type="text/css">
+        .thumbnail p, .thumbnail h4 {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            }
+        .star-rating {
+            line-height:32px;
+            font-size:1.25em;
+            }
+
+.star-rating .fa-star{color: yellow;}
+        
+    </style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+
+                    <!-- Header -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="">Movies</a>
+                    </div>
+
+                    <!-- Items -->
+                    <div class="collapse navbar-collapse" id="topNavBar">
+                        <ul class="nav navbar-nav ">
+                            
+                            <li><a href="{% url 'index' %}">&nbsp; Home</a></li>
+                 
+						</ul>
+					
+                        <ul class="nav navbar-nav navbar-right">
+                         {% if not request.user.is_authenticated %}
+                            <li>
+                                <a href="{% url 'signup' %}">
+                                    <span aria-hidden="true"></span>&nbsp; 
+                                    SignUp
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'login' %}">
+                                    <span aria-hidden="true"></span>&nbsp; Login
+                                </a>
+                            </li>
+                        {% else %}
+                            <li>
+                                <a href="{% url 'logout' %}">
+                                    <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;Logout 
+                                </a>
+                            </li>
+                        {% endif %}
+                        </ul>
+                    </div>
+
+                </div>
+
+    </nav>
+</div>  
+    {% block body %}
+    {% endblock %}
+     <nav class="navbar navbar-bottom">                   
+    <footer class="page-footer font-small">
+        <hr>
+          <div class="text-center center-block">
+            <br />
+                <a href="https://www.facebook.com/profile.php?id=100004918600612"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                <a href="https://twitter.com/asif536"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                <a href="https://www.linkedin.com/in/mohd-asif-984a35121/"><i class="fa fa-linkedin-square fa-3x social"></i></a>
+                <a href="https://github.com/asif536"><i id="social-git"class="fa fa-github-square fa-3x"></i></a>
+        </div>
+        <hr>
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        <a href="#"> MohdAsif</a>
+    </div>
+
+    </footer>
+    </nav>
+	<script type="text/javascript" src="{%static 'web/js/jquery.min.js'%}">
+	</script>
+
+	<script type="text/javascript" src="{%static 'web/js/bootstrap.min.js'%}">
+	</script>
+    <script type="text/javascript">
+    var $star_rating = $('.star-rating .fa');
+
+    var SetRatingStar = function() {
+        return $star_rating.each(function() {
+        if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+            return $(this).removeClass('fa-star-o').addClass('fa-star');
+        } else {
+        return $(this).removeClass('fa-star').addClass('fa-star-o');
+        }
+        });
+        };
+
+    $star_rating.on('click', function() {
+    $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+    return SetRatingStar();
+    });
+
+    SetRatingStar();
+    $(document).ready(function() {
+
+    });
+        
+</script>
+<script type="text/javascript">
+    function validateForm(){
+    var x = document.forms["ratingForm"]["rating"].value;
+    if(x=="0"){
+        alert("Invalid Input");
+        return false;
+    }
+    }
+</script>
+
+</body>
+</html>

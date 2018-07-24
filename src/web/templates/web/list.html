@@ -1,0 +1,66 @@
+{% extends 'web/base.html'%}
+{% block body %}
+
+<div class="container">
+    <div class="col-xs-6 col-xs-offset-3">
+    	<form class="form-horizontal" role="search" method="get" action=''>
+         <div class="form-group">
+         <div class="input-group">	
+            <input type="text" class="form-control input-lg " name="q" value="{{ request.GET.q }}" placeholder= "Search Movies "/>
+            <span class='input-group-btn'>
+
+             <button class='btn btn-info btn-lg' type='submit'>Search
+             </button>
+         </span>
+        </div>
+     </div>
+   </form>
+
+ </div>
+</div>  
+    {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %} >{{ message }}</li>
+            {% endfor %}
+            </ul>
+    {% endif %}
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 col-md-3">
+		<h1>Movies List</h1>
+        </div>
+        <div class="col-xs-offset-9  mt-3">
+        <a href="{% url 'recommend' %}" class="btn"><strong><h2>Get Recommendation</h2></strong></a>
+        </div>
+    </div>
+	</div>
+	<div class="container-fluid">
+    
+    <!-- Movie list -->
+    <div class="row">
+            {% if movies %}
+            {% for movie in movies %}
+                <div class="col-sm-2 col-md-2 ">
+                    <div class="thumbnail">
+                        <h4>{{movie.title}}</h4>
+                        <a href="{% url 'detail' movie.id %}">
+                            <img src="{{ movie.movie_logo.url}}" class="img-responsive">
+                        </a>
+                        <h5>{{movie.genre}}</h5>
+                        <div class="caption">
+
+                            <!-- View Details -->
+                            <a href="{% url 'detail' movie.id %}" class="btn btn-primary btn-sm" role="button">Give Rating</a>
+
+                                        
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+        </div>
+    
+</div>
+
+{% endblock %}
