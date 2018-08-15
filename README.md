@@ -69,5 +69,5 @@ python manage.py runserver
 ```
 Now open your browser go to this address
 ```
-  http://127.0.0.1:8000
+http://127.0.0.1:8000
 ```
