@@ -58,7 +58,9 @@ source bin/activate
 ```
 for Windows
 ```
-cd Scripts/activate
+cd Scripts
+then
+activate
 ```
 Downloading requirements
 
