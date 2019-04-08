@@ -1,5 +1,5 @@
 # Movie-Recommender-System
-It is the Web Base Movie Recommender Engine which Implement Collaborative Filtering By matrix factorizations algorithm.
+A Web Base Movie Recommender Engine which Implement Collaborative Filtering By matrix factorizations algorithm.
 
 ### Screenshot
 
@@ -18,10 +18,10 @@ It is the Web Base Movie Recommender Engine which Implement Collaborative Filter
 Html , Css , JavaScript , Bootstrap , Django
 
 #### Machine Learning Library In Python3
-numpy , pandas , scipy
+Numpy , Pandas , Scipy
 
 #### Database
-sqlite
+SQLite
 
 ##### Requirements
 ```
@@ -62,16 +62,15 @@ cd Scripts
 then
 activate
 ```
-Downloading requirements
+To install Dependencies
 
 ```
 pip install -r requirements.txt
 ```
-It will install all requirements.
 
 ### Creating Local Server
 
-goto src directory example
+Goto src directory, example
 
 ```
 cd ../Movie-Recommender-System/src
@@ -80,7 +79,7 @@ To run
 ```
 python manage.py runserver
 ```
-Now open your browser go to this address
+Now open your browser and go to this address
 ```
 http://127.0.0.1:8000
 ```
