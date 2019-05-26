@@ -1,6 +1,6 @@
 # Movie-Recommender-System
-A Web Base Movie Recommender Engine which Implement Collaborative Filtering By matrix factorizations algorithm.
-
+A Web Base user-item Movie Recommendation Engine using Collaborative Filtering By matrix factorizations algorithm and
+The recommendation based on the underlying idea that is if two users both liked certian common movies,then the movies that one user has liked that the other user has not yet watched can be recommended to him.   
 ### Screenshot
 
 ###### Home page
