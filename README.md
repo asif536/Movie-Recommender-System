@@ -83,5 +83,6 @@ Now open your browser and go to this address
 ```
 http://127.0.0.1:8000
 ```
-Thank you for visiting my repositories.
+Thank you for visiting my repository.
+
 Don't forget to give star!!
