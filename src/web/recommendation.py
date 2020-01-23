@@ -15,7 +15,9 @@ def Myrecommend():
 		return np.concatenate((myX.flatten(),myTheta.flatten()))
     
 	def reshapeParams(flattened_XandTheta, mynm, mynu, mynf):
-		assert flattened_XandTheta.shape[0] == int(mynm*mynf+mynu*mynf)
+		if flattened_XandTheta.shape[0] == int(mynm*mynf+mynu*mynf):
+			raise Exception("error occured at reshapeParams args:\
+				{flattened_XandTheta}, {mynm}, {mynu}, {mynf}")
 		reX = flattened_XandTheta[:int(mynm*mynf)].reshape((mynm,mynf))
 		reTheta = flattened_XandTheta[int(mynm*mynf):].reshape((mynu,mynf))
 		return reX, reTheta
@@ -64,11 +66,3 @@ def Myrecommend():
 	resX, resTheta = reshapeParams(result[0], mynm, mynu, mynf)
 	prediction_matrix = resX.dot(resTheta.T)
 	return prediction_matrix,Ymean
-	
-
-
-
-
-
-
-
