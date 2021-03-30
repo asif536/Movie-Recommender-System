@@ -1,10 +1,14 @@
+/* properties of navigation bar*/
 .navbar{
 	border-radius: 0;
 	min-height: 80px;
 }
+ 
 .container-fluid{
 	margin-top: 18px;
 }
+
+/* properties of hyperlinks in navigation bar*/
 .navbar-nav>li>a{
 	font-size: 18px;
 }
@@ -14,6 +18,7 @@
 	font-style: italic;
 	font-weight: 700;
 }
+
 .navbar-inverse .navbar-brand{
 	color:#00bcd4;
 }
